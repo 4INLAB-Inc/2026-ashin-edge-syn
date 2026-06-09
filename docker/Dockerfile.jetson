@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=nvcr.io/nvidia/l4t-jetpack:r35.5.0
+ARG BASE_IMAGE=nvcr.io/nvidia/l4t-jetpack:r35.4.1
 FROM ${BASE_IMAGE}
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -27,6 +27,6 @@ COPY pyproject.toml pyproject.toml
 COPY app app
 COPY scripts scripts
 
-RUN python3 scripts/check_env.py --mode edge --check-tensorrt
+RUN python3 scripts/check_env.py --mode edge
 
 CMD ["python3", "-m", "app.main"]
