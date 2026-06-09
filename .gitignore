@@ -1,0 +1,115 @@
+# =========================
+# Python cache
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# Python build / packaging
+# =========================
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
+# =========================
+# Test / type / lint cache
+# =========================
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Environment variables / secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# Data files
+# =========================
+data/raw/
+data/interim/
+data/processed/
+data/external/
+
+# Keep folder structure if needed
+!data/.gitkeep
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
+
+# =========================
+# Model artifacts
+# =========================
+models/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.engine
+*.trt
+*.pkl
+*.joblib
+
+# Keep model folder structure if needed
+!models/.gitkeep
+
+# =========================
+# MLflow / experiment outputs
+# =========================
+mlruns/
+outputs/
+runs/
+wandb/
+
+# =========================
+# Docker / local runtime
+# =========================
+docker-compose.override.yml
+
+# =========================
+# OS / Editor files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+.vscode/
+.idea/
+
+# =========================
+# Windows temporary files
+# =========================
+*.tmp
+*.bak
+*.swp
+~$*

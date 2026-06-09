@@ -1,0 +1,32 @@
+ARG BASE_IMAGE=nvcr.io/nvidia/l4t-jetpack:r35.5.0
+FROM ${BASE_IMAGE}
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PIP_NO_CACHE_DIR=1
+
+WORKDIR /workspace
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3-pip \
+    python3-venv \
+    git \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m pip install --upgrade pip setuptools wheel
+
+COPY requirements/base.txt requirements/base.txt
+COPY requirements/edge.txt requirements/edge.txt
+
+RUN python3 -m pip install -r requirements/edge.txt
+
+COPY pyproject.toml pyproject.toml
+COPY app app
+COPY scripts scripts
+
+RUN python3 scripts/check_env.py --mode edge --check-tensorrt
+
+CMD ["python3", "-m", "app.main"]
