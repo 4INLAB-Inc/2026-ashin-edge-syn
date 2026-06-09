@@ -113,3 +113,6 @@ desktop.ini
 *.bak
 *.swp
 ~$*
+
+
+COMMIT_MSG.txt
